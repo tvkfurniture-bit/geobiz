@@ -11,14 +11,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 
+<!-- 1. GITHUB TO GOOGLE APPS SCRIPT WEB APP BRIDGE -->
 <script>
-  /* Apply saved / system theme before first paint */
+  var GAS_API_URL = "https://script.google.com/macros/s/AKfycbxwhdGcu60rGroG3kyZlq4CraBUwDBTkvk3kfuU1ANLU7ply4QNrEC4WD_KgabpC056ACA/exec";
+
+  /* Apply saved / system theme before paint */
   (function () {
     var t = 'light';
     try { t = localStorage.getItem('geobiz_theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
     document.documentElement.setAttribute('data-theme', t);
   })();
-  var GAS_API_URL = "https://script.google.com/macros/s/AKfycbymRj8k264unKs8KwDA5ELeegJVZMOU3rYYhRD1N7daFtEcplhGur5u735Q2JonZRhKgQ/exec";
 </script>
 
 <style>
@@ -201,7 +203,6 @@ ul { list-style: none; }
 }
 .grok-subhead { font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--muted); max-width: 680px; margin: 0 auto 32px; line-height: 1.6; font-weight: 500; }
 
-/* Command Bar (Never Blows Out on Mobile) */
 .grok-search-wrap {
   max-width: 760px; margin: 0 auto; position: relative; border-radius: var(--r-pill); padding: 3px;
   background: linear-gradient(135deg, var(--line-2), var(--accent), var(--line-2));
@@ -216,13 +217,11 @@ ul { list-style: none; }
 .grok-search-btn { height: 44px; padding: 0 24px; font-weight: 800; font-size: .92rem; border-radius: var(--r-pill); background: var(--text) !important; color: var(--bg) !important; flex-shrink: 0; }
 
 .chip-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; align-items: center; }
-.chip-row .lbl { font-size: .82rem; color: var(--muted); font-weight: 600; }
 .chip { padding: 6px 14px; border-radius: var(--r-pill); border: 1px solid var(--line); background: var(--card); font-size: .82rem; font-weight: 600; transition: .15s; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chip:hover { border-color: var(--accent); color: var(--accent); }
 .chip.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 .hero-cta { display: flex; gap: 12px; justify-content: center; margin-top: 26px; flex-wrap: wrap; }
 
-/* Hero Terminal Preview */
 .hero-terminal-preview {
   max-width: 880px; margin: 44px auto 0; background: var(--card); border: 1px solid var(--line-2);
   border-radius: 22px; box-shadow: 0 30px 80px -15px rgba(15, 23, 42, 0.16); padding: 22px 26px; text-align: left;
@@ -234,7 +233,6 @@ ul { list-style: none; }
 .term-body-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items: center; }
 .term-live-metric { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
 
-/* Stats Bar */
 .hero-stats-bar {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 780px; margin: 36px auto 0;
   border: 1px solid var(--line) !important; background: var(--card) !important; box-shadow: var(--shadow-2);
@@ -243,7 +241,6 @@ ul { list-style: none; }
 .stat-label { display: block; font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); margin-bottom: 2px; }
 .stat-num { font-size: 2rem !important; font-weight: 800 !important; letter-spacing: -.03em; color: var(--text); line-height: 1.1; }
 
-/* Wizard */
 .terminal-card { max-width: 860px; margin: 0 auto; border-radius: 24px; border: 1.5px solid var(--line-2); padding: 36px; background: var(--card); box-shadow: var(--shadow-2); }
 .wz-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
 .terminal-header-tag { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); background: var(--accent-soft); padding: 3px 10px; border-radius: var(--r-pill); display: inline-block; margin-bottom: 6px; }
@@ -293,12 +290,10 @@ textarea.input { padding: 10px 12px; resize: vertical; min-height: 96px; }
   font-size: .84rem; color: #065f46; line-height: 1.45;
 }
 
-/* Stepper */
 .home-stepper { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 32px; }
 .protocol-step { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px 20px; box-shadow: var(--shadow-1); }
 .protocol-num { font-size: 1.4rem; font-weight: 900; font-family: monospace; color: var(--accent); margin-bottom: 10px; line-height: 1; }
 
-/* Cosmic CTA */
 .cosmic-cta {
   background: radial-gradient(circle at 50% 0%, #1e293b, #020617 80%) !important;
   border: 1px solid #334155 !important; border-radius: 28px !important; padding: 64px 36px !important;
@@ -404,7 +399,6 @@ textarea.input { padding: 10px 12px; resize: vertical; min-height: 96px; }
 .teaser-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; margin-bottom: 22px; text-align: start; }
 .teaser-item { background: color-mix(in srgb, var(--bg) 8%, transparent); border: 1px solid color-mix(in srgb, var(--bg) 15%, transparent); border-radius: 8px; padding: 10px 14px; font-size: .8rem; font-weight: 600; }
 
-/* Sticky Mobile Dock */
 .detail-sticky-dock {
   display: none; position: fixed; bottom: 0; inset-inline: 0; z-index: 55;
   background: color-mix(in srgb, var(--card) 92%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
@@ -429,7 +423,6 @@ textarea.input { padding: 10px 12px; resize: vertical; min-height: 96px; }
 .price ul { display: flex; flex-direction: column; gap: 8px; font-size: .88rem; margin-bottom: 22px; flex: 1; }
 .price li::before { content: '✓'; color: var(--good); font-weight: 800; margin-inline-end: 8px; }
 
-/* Blueprint Showcase */
 .bp-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 32px; }
 .bp-pillar-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px 20px; box-shadow: var(--shadow-1); display: flex; flex-direction: column; justify-content: space-between; }
 .bp-icon-wrap { font-size: 1.8rem; margin-bottom: 12px; }
@@ -644,3 +637,1475 @@ footer { background: var(--bg-2); border-top: 1px solid var(--line); padding: 50
 .bento-box .teaser-item { background: var(--bg-2) !important; border: 1px solid var(--line-2) !important; color: var(--text) !important; font-weight: 700 !important; }
 .hero-terminal-preview .opp-cat-pill { background: var(--good-soft); color: var(--good); border-color: color-mix(in srgb, var(--good) 25%, transparent); }
 </style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="announce" id="announce" role="status">
+  <span class="dot"></span><span id="sync-text">Connecting…</span>
+</div>
+
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="#home" data-action="nav" data-arg="home" aria-label="GeoBiz home">
+      <span class="brand-mark" aria-hidden="true"></span><span>GeoBiz</span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="#explore" data-action="nav" data-arg="explore" data-nav="explore" data-i18n="nav_explore">Explore</a>
+      <a href="#finder" data-action="finder" data-i18n="nav_find">Find my fit</a>
+      <a href="#blueprint" data-action="nav" data-arg="blueprint" data-nav="blueprint" data-i18n="nav_blueprint">Blueprint</a>
+      <a href="#research" data-action="nav" data-arg="research" data-nav="research" data-i18n="nav_research">Research</a>
+      <a href="#pricing" data-action="nav" data-arg="pricing" data-nav="pricing" data-i18n="nav_pricing">Pricing</a>
+    </nav>
+
+    <div class="actions">
+      <select class="select" id="lang-switch" aria-label="Language">
+        <option value="en">English</option>
+        <option value="bn">বাংলা</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ur">اردو</option>
+      </select>
+      <button class="icon-btn" type="button" data-action="theme" aria-label="Toggle dark mode" id="theme-btn">🌙</button>
+      <button class="icon-btn hide-mobile" type="button" data-action="nav" data-arg="dashboard" aria-label="My workspace">👤</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======================= 1. HOME VIEW ======================= -->
+<section id="view-home" class="view active">
+  <div class="hero grok-hero">
+    <div class="container">
+      <div class="hero-badge-wrap">
+        <span class="live-pulse-dot"></span>
+        <span class="eyebrow" style="font-weight:800;background:none;padding:0;" data-i18n="hero_badge">
+          LIVE AUDIT ENGINE • ACTIVE ACROSS 19,000+ PIN CODES
+        </span>
+      </div>
+
+      <h1 class="h1 grok-title" data-i18n="hero_title">Verified business opportunities, engineered for your exact location.</h1>
+      <p class="lead grok-subhead" data-i18n="hero_sub">Tell GeoBiz your PIN code, available capital, and ground skills. We match you with validated, high-yield business models based on direct mandi wholesale pricing.</p>
+
+      <form class="grok-search-wrap" id="hero-search" role="search">
+        <div class="grok-search-inner">
+          <span style="font-size:1.2rem;color:var(--muted);">🔍</span>
+          <input type="search" id="hero-q" autocomplete="off" data-i18n-ph="search_ph" placeholder="Enter your city, PIN code (e.g. 700084), or business idea…" aria-label="Search opportunities" />
+          <button class="btn btn-primary grok-search-btn" type="submit" data-i18n="btn_search">Search Catalog</button>
+        </div>
+      </form>
+
+      <div class="chip-row" id="hero-chips" style="margin-top:20px;"></div>
+
+      <div class="hero-cta" style="margin-top:32px;">
+        <button class="btn btn-dark btn-lg" style="height:52px;font-weight:800;padding:0 32px;" type="button" data-action="finder" data-i18n="cta_find">
+          ⚡ Configure My Founder Profile
+        </button>
+        <button class="btn btn-outline btn-lg" style="height:52px;font-weight:800;padding:0 32px;" type="button" data-action="nav" data-arg="explore" data-i18n="cta_explore">
+          Browse Live Directory →
+        </button>
+      </div>
+
+      <!-- Hero Product Terminal Preview -->
+      <div class="hero-terminal-preview">
+        <div class="term-head">
+          <div class="term-dots">
+            <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+          </div>
+          <span style="font-size:0.75rem;font-weight:800;font-family:monospace;color:var(--muted);">GEOBIZ ENGINE v2.4 • REAL-TIME GROUND INTELLIGENCE</span>
+          <span style="font-size:0.75rem;font-weight:700;color:var(--good);">● CONNECTED</span>
+        </div>
+
+        <div class="term-body-grid">
+          <div>
+            <span class="opp-cat-pill" style="margin-bottom:8px;">🌾 AGRI-TOURISM &amp; DIRECT SUPPLY</span>
+            <h3 style="font-size:1.35rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;">Agri-Tourism Day Trips</h3>
+            <div style="font-size:0.86rem;color:var(--muted);font-weight:600;margin-bottom:12px;">📍 Garia, Kolkata • PIN 700084</div>
+            <p style="font-size:0.9rem;color:var(--muted);line-height:1.5;">Direct weekend farm access agreements with Sonarpur cooperatives, bypassing commercial resort overhead.</p>
+          </div>
+
+          <div class="term-live-metric">
+            <div style="font-size:0.68rem;font-weight:800;text-transform:uppercase;color:var(--muted);letter-spacing:0.06em;margin-bottom:2px;">AUDITED NET PROFIT</div>
+            <div style="font-size:1.45rem;font-weight:900;color:var(--good);letter-spacing:-0.02em;">₹1,00,000 – ₹1,50,000 / mo</div>
+            <div style="margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-size:0.78rem;font-weight:700;">
+              <span>Territory Demand: <b style="color:#ea580c;">High Gap</b></span>
+              <span>Entry: <b>₹40,000</b></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats hero-stats-bar" id="stats" hidden style="margin-top:36px;">
+        <div class="stat">
+          <small class="stat-label">AUDITED MODELS</small>
+          <b id="st-opps" class="stat-num">–</b>
+          <span data-i18n="stat_opps">Verified Ventures</span>
+        </div>
+        <div class="stat">
+          <small class="stat-label">TERRITORIES</small>
+          <b id="st-locs" class="stat-num">–</b>
+          <span data-i18n="stat_locs">Active Districts</span>
+        </div>
+        <div class="stat">
+          <small class="stat-label">COMMERCIAL NICHES</small>
+          <b id="st-cats" class="stat-num">–</b>
+          <span data-i18n="stat_cats">Sectors Covered</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wizard Engine -->
+  <div class="container" style="padding-top:24px;">
+    <section class="wizard terminal-card" id="finder-section" aria-labelledby="wz-title">
+      <div class="wz-head">
+        <div>
+          <span class="terminal-header-tag">⚡ INTELLIGENT MATCHING PROTOCOL</span>
+          <h2 id="wz-title" style="font-size:1.6rem;font-weight:850;letter-spacing:-0.025em;" data-i18n="wz_title">Configure Your Deployment Profile</h2>
+          <p class="muted" style="font-size:0.92rem;margin-top:4px;" data-i18n="wz_sub">3 quick steps. We rank local opportunities based on your PIN code, niche, and ground skills.</p>
+        </div>
+        <div class="terminal-step-badge">Step <span id="wz-step-num">1</span> of 3</div>
+      </div>
+
+      <div class="wz-progress" id="wz-progress" aria-hidden="true" style="margin:20px 0 28px;">
+        <div></div><div></div><div></div>
+      </div>
+
+      <form id="finder-form" novalidate>
+        <div class="wz-step active" data-step="1">
+          <div class="wz-step-title" style="font-weight:800;color:var(--accent);letter-spacing:0.08em;margin-bottom:16px;">PHASE 1 · TERRITORY &amp; LOCATION</div>
+          <div class="grid-2" style="gap:16px;">
+            <div class="field"><label for="ff-name">Your Full Name <span class="req">*</span></label><input class="input" id="ff-name" required minlength="2" maxlength="80" autocomplete="name" placeholder="e.g. Rahul Sharma" /></div>
+            <div class="field"><label for="ff-state">State <span class="req">*</span></label><input class="input" id="ff-state" required maxlength="60" placeholder="e.g. West Bengal" autocomplete="address-level1" /></div>
+            <div class="field"><label for="ff-city">City / District <span class="req">*</span></label><input class="input" id="ff-city" required maxlength="80" placeholder="e.g. Kolkata" autocomplete="address-level2" /></div>
+            <div class="field"><label for="ff-pin">PIN Code (Matches Nearest Wholesale Mandi) <span class="req">*</span></label><input class="input" id="ff-pin" inputmode="numeric" pattern="[1-9][0-9]{5}" maxlength="6" placeholder="e.g. 700084" autocomplete="postal-code" /></div>
+          </div>
+        </div>
+
+        <div class="wz-step" data-step="2">
+          <div class="wz-step-title" style="font-weight:800;color:var(--accent);letter-spacing:0.08em;margin-bottom:16px;">PHASE 2 · FOUNDER COMPETENCIES</div>
+          <div class="grid-2" style="gap:16px;">
+            <div class="field"><label for="ff-edu">Education Background</label>
+              <select class="input" id="ff-edu">
+                <option value="High School">High School</option>
+                <option value="Graduate" selected>Graduate</option>
+                <option value="Post-Graduate">Post-Graduate</option>
+                <option value="Self-Taught">Self-Taught / Technical</option>
+              </select></div>
+            <div class="field"><label for="ff-skill">Primary Practical Skill</label><input class="input" id="ff-skill" maxlength="120" placeholder="e.g. B2B Sales, Farming, Logistics" /></div>
+            <div class="field" style="grid-column:1/-1;"><label for="ff-niche">Preferred Commercial Sector</label>
+              <select class="input" id="ff-niche"><option value="All">Any High-Margin Commercial Niche</option></select></div>
+          </div>
+        </div>
+
+        <div class="wz-step" data-step="3">
+          <div class="wz-step-title" style="font-weight:800;color:var(--accent);letter-spacing:0.08em;margin-bottom:16px;">PHASE 3 · CAPITAL &amp; COMMITMENT</div>
+          <div class="grid-2" style="gap:16px;">
+            <div class="field"><label for="ff-capital">Available Capital</label>
+              <select class="input" id="ff-capital">
+                <option value="Under ₹25,000">Under ₹25,000 (Micro Entry)</option>
+                <option value="₹25,000 - ₹50,000" selected>₹25,000 – ₹50,000</option>
+                <option value="₹50,000 - ₹1,50,000">₹50,000 – ₹1,50,000</option>
+                <option value="₹1,50,000+">₹1,50,000+ (Aggressive Scale)</option>
+              </select></div>
+            <div class="field"><label for="ff-goal">Target Monthly Income</label>
+              <select class="input" id="ff-goal">
+                <option value="₹50,000 - ₹80,000">₹50,000 – ₹80,000 / month</option>
+                <option value="₹80,000 - ₹1,50,000" selected>₹80,000 – ₹1,50,000 / month</option>
+                <option value="₹1,50,000+">₹1,50,000+ / month</option>
+              </select></div>
+            <div class="field"><label for="ff-time">Time Allocation</label>
+              <select class="input" id="ff-time">
+                <option value="Full-Time" selected>Full-Time (8+ hrs/day)</option>
+                <option value="Part-Time">Part-Time (3–4 hrs/day)</option>
+                <option value="Weekend">Weekends Only</option>
+              </select></div>
+            <div class="field"><label for="ff-risk">Risk Profile</label>
+              <select class="input" id="ff-risk">
+                <option value="Low">Low — Fast Cashflow, Zero Inventory</option>
+                <option value="Moderate" selected>Moderate — Working Stock</option>
+                <option value="High">High — Scalable Processing Asset</option>
+              </select></div>
+          </div>
+          <label class="consent" style="margin-top:18px;">
+            <input type="checkbox" id="ff-consent" required />
+            <span>I authorize GeoBiz to analyze these parameters to rank verified local opportunities. Data is private and never sold.</span>
+          </label>
+        </div>
+
+        <div class="wz-nav" style="margin-top:28px;">
+          <button class="btn btn-outline" type="button" id="wz-back" data-action="wz-back">Back</button>
+          <button class="btn btn-primary btn-lg" style="font-weight:800;padding:0 30px;" type="button" id="wz-next" data-action="wz-next">Next Step →</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <!-- Bento Grid -->
+  <section class="bento-master-section">
+    <div class="container">
+      <div class="center" style="max-width:760px;margin:0 auto 48px;">
+        <span class="eyebrow">THE GEOBIZ INTELLIGENCE ADVANTAGE</span>
+        <h2 class="h2" style="font-size:clamp(1.8rem, 3.2vw, 2.7rem);font-weight:850;margin-top:12px;">Engineered for real Indian territory economics.</h2>
+        <p class="lead" style="margin:10px auto 0;">90% of local businesses fail because they copy generic ideas. GeoBiz identifies unserved demand and wholesale price gaps directly from ground mandis.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-box span-2">
+          <div>
+            <span class="bento-badge">GROUND DISCOVERY</span>
+            <h3>Direct Mandi &amp; Wholesale Price Audits</h3>
+            <p>We deploy seasoned field researchers directly into agricultural mandis, plastic molding hubs, and spice centers to uncover true wholesale price spreads.</p>
+          </div>
+          <div class="mandi-ticker-box">
+            <div class="mandi-ticker-row"><span>Sonarpur Mandi · Fresh Spinach Pre-Order</span><span class="ticker-green">Wholesale: ₹11/kg ➔ Retail: ₹35/kg (+68%)</span></div>
+            <div class="mandi-ticker-row"><span>Belerhat Cluster · Cold-Chain Ice Crates</span><span class="ticker-green">Unit Cost: ₹210 ➔ Repeat Rental: ₹45/day</span></div>
+            <div class="mandi-ticker-row"><span>Asansol Hub · Millet Repacking Gap</span><span class="ticker-green">Bulk Bag: ₹38/kg ➔ Branded Kirana: ₹85/kg</span></div>
+          </div>
+        </div>
+
+        <div class="bento-box">
+          <div>
+            <span class="bento-badge">MICRO-LOCATION</span>
+            <h3>Hyperlocal PIN Code Precision</h3>
+            <p>What works in 700084 (Garia) fails in 713301 (Asansol). Every model is tuned to regional traffic routes, municipal permissions, and neighborhood density.</p>
+          </div>
+          <div style="background:var(--bg-2);padding:14px;border-radius:12px;border:1px solid var(--line);margin-top:16px;">
+            <div style="font-weight:800;font-size:0.85rem;color:var(--text);">📍 700084 (Garia) Cluster</div>
+            <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">Audited Gap: High-Density Gated Societies</div>
+          </div>
+        </div>
+
+        <div class="bento-box">
+          <div>
+            <span class="bento-badge green">IMPULSE ACCESS</span>
+            <h3>7-Day Starter Kits (₹149)</h3>
+            <p>Immediate digital unlock. Verified supplier shortlists, breakeven Excel sheets, and Day-1 launch steps delivered directly to your WhatsApp in 60 seconds.</p>
+          </div>
+          <div class="whatsapp-chat-bubble">
+            <strong>💬 GeoBiz Automated Dispatch:</strong><br>
+            "Your Starter Kit for Agri-Tourism is ready. Download verified vendor list &amp; Excel sheet..."
+          </div>
+        </div>
+
+        <div class="bento-box span-2">
+          <div>
+            <span class="bento-badge blue">BESPOKE LICENSING</span>
+            <h3>35+ Page Executive Operational Blueprints</h3>
+            <p>Need deep territory execution? Commission an analyst-prepared blueprint with 3-year unit economics, supplier contracts, FSSAI/GST roadmaps, and 90-day milestone Gantt charts.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;">
+            <div class="teaser-item">✓ Dynamic Financial Model (.xlsx)</div>
+            <div class="teaser-item">✓ Verified Wholesaler Directory</div>
+            <div class="teaser-item">✓ 45-Min Private Strategy Debrief</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stepper -->
+  <section class="section alt" style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="center" style="max-width:680px;margin:0 auto 40px;">
+        <span class="eyebrow">THE OPERATIONAL PROTOCOL</span>
+        <h2 class="h2" style="margin-top:10px;">From zero to your first profitable territory sale.</h2>
+      </div>
+
+      <div class="steps home-stepper">
+        <div class="protocol-step">
+          <div class="protocol-num">01</div>
+          <h4 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Territory Audit</h4>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Enter your city and PIN code. We map local footfall and supplier clusters.</p>
+        </div>
+        <div class="protocol-step">
+          <div class="protocol-num">02</div>
+          <h4 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Margin Discovery</h4>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Our engine indexes models where wholesale spreads guarantee 35%+ net margins.</p>
+        </div>
+        <div class="protocol-step">
+          <div class="protocol-num">03</div>
+          <h4 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Low-Capital Wedge</h4>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Deploy the beginner entry point with minimum upfront risk or inventory commitment.</p>
+        </div>
+        <div class="protocol-step">
+          <div class="protocol-num">04</div>
+          <h4 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Validate &amp; Scale</h4>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.5;">Close your first 20 local buyers with zero ad spend before investing in machinery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cosmic Final CTA -->
+  <section class="container" style="padding: 80px 20px 96px;">
+    <div class="cosmic-cta">
+      <span class="eyebrow" style="background:rgba(255,255,255,0.12);color:#38bdf8;border:1px solid rgba(255,255,255,0.2);">START YOUR GROUND VENTURE</span>
+      <h2>Your next high-margin business is already in your district.</h2>
+      <p style="opacity:0.8;max-width:620px;margin:0 auto 32px;font-size:1.05rem;line-height:1.6;">Stop chasing abstract software ideas. Start with validated local demand, direct mandi wholesale prices, and immediate cash flow.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-lg" style="background:#ffffff;color:#020617;font-weight:850;padding:0 36px;box-shadow:0 8px 30px rgba(255,255,255,0.3);" type="button" data-action="finder">⚡ Match My Opportunities (Free)</button>
+        <button class="btn btn-outline btn-lg" style="color:#ffffff;border-color:rgba(255,255,255,0.35);background:transparent;font-weight:700;" type="button" data-action="nav" data-arg="explore">Explore All Verified Models →</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ======================= 2. EXPLORE VIEW ======================= -->
+<section id="view-explore" class="view">
+  <div class="container">
+    <div class="explore-hero-head">
+      <div>
+        <span class="eyebrow" style="margin-bottom:8px;">📍 VERIFIED GROUND CATALOG</span>
+        <h1 class="h2" style="font-size:clamp(1.6rem, 3vw, 2.3rem);margin-bottom:4px;">Territory Opportunity Intelligence</h1>
+        <p class="muted" style="font-size:0.95rem;">Curated business opportunities verified through local mandi audits and demand gaps across India.</p>
+      </div>
+    </div>
+
+    <div class="explore">
+      <aside class="sidebar" aria-label="Filters">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line);">
+          <h3 style="font-size:0.95rem;font-weight:800;letter-spacing:-0.01em;">Filter Catalog</h3>
+          <button class="btn btn-ghost btn-sm" style="font-size:0.78rem;font-weight:700;" type="button" data-action="reset">Reset All</button>
+        </div>
+        <div id="facets-desktop"></div>
+      </aside>
+
+      <div>
+        <div class="toolbar">
+          <div class="search-pill" role="search">
+            <span class="ico" aria-hidden="true">🔍</span>
+            <input type="search" id="global-search" autocomplete="off" data-i18n-ph="search_ph" placeholder="Search by city, PIN code or business model…" aria-label="Search" />
+          </div>
+          <select class="select" id="sort-select" aria-label="Sort">
+            <option value="newest" data-i18n="sort_new">Newest verified</option>
+            <option value="oldest" data-i18n="sort_old">Oldest first</option>
+            <option value="title_asc" data-i18n="sort_az">Title A–Z</option>
+          </select>
+          <button class="btn btn-outline filter-fab" type="button" data-action="open-filters">⚙ <span data-i18n="lbl_filters">Filters</span></button>
+        </div>
+
+        <div class="chip-scroll" id="mobile-chips"></div>
+        <div id="match-banner"></div>
+        
+        <div class="result-meta">
+          <span>Showing <b id="count-visible" style="color:var(--text);font-size:1.05rem;">0</b> verified opportunities</span>
+          <span id="page-info" style="font-weight:700;"></span>
+        </div>
+
+        <div class="grid" id="cards-container" aria-live="polite"></div>
+        <div class="pager" id="pagination-controls"></div>
+        <p class="disclaimer" data-i18n="card_disclaimer">Estimated yields are mathematical models derived from local unit economics, not guaranteed income. Verify customer demand, supplier prices, and trade licenses (FSSAI, GST) before committing capital.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 3. DETAIL VIEW ======================= -->
+<section id="view-detail" class="view">
+  <div class="container page-pad">
+    <div class="detail-nav-bar">
+      <button class="back-pill" type="button" data-action="nav" data-arg="explore">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Back to All Opportunities</span>
+      </button>
+      <div class="detail-breadcrumb-tags hide-mobile">
+        <span class="crumb-tag">Territory Intelligence</span>
+        <span class="crumb-sep">/</span>
+        <span class="crumb-tag active">Confidential Memo</span>
+      </div>
+    </div>
+
+    <div id="detail-content" class="detail-dossier-canvas"></div>
+  </div>
+
+  <aside class="detail-sticky-dock" id="detail-sticky-dock" aria-label="Quick Actions">
+    <div class="dock-meta">
+      <small id="dock-opp-cat">BUSINESS OPPORTUNITY</small>
+      <b id="dock-opp-title">Opportunity Dossier</b>
+    </div>
+    <div class="dock-actions">
+      <button class="btn btn-sm btn-starter" id="dock-starter-btn" type="button" data-action="quick-unlock" data-id="" data-title="">⚡ Unlock Kit (₹149)</button>
+      <button class="btn btn-sm btn-outline hide-mobile" id="dock-bp-btn" type="button" data-action="checkout" data-id="" data-title="">Full Blueprint (₹2,499)</button>
+    </div>
+  </aside>
+</section>
+
+<!-- ======================= 4. BLUEPRINT VIEW ======================= -->
+<section id="view-blueprint" class="view">
+  <div class="container page-pad">
+    <div class="center" style="max-width:780px;margin:0 auto 36px;">
+      <span class="eyebrow" style="margin-bottom:12px;">💎 16-SECTION OPERATIONAL PLAYBOOK</span>
+      <h1 class="h1" data-i18n="bp_title">Go beyond the idea. Get the Blueprint.</h1>
+      <p class="lead" style="margin-top:12px;" data-i18n="bp_sub">A bespoke 35+ page execution manual tailored for your exact territory—complete with unit economics sheets, verified supplier rosters, and a 90-day milestone Gantt roadmap.</p>
+    </div>
+
+    <div class="bp-grid-4">
+      <div class="bp-pillar-card">
+        <div class="bp-icon-wrap">📊</div>
+        <h4>Financial Engine &amp; Margins</h4>
+        <p>Interactive Excel sheet with gross margins, operational expenses, cash-flow projections, and breakeven timelines.</p>
+      </div>
+      <div class="bp-pillar-card">
+        <div class="bp-icon-wrap">🏭</div>
+        <h4>Supply Chain &amp; Mandi Roster</h4>
+        <p>Direct wholesale contacts, factory sources, minimum order quantities (MOQ), and commercial negotiation scripts.</p>
+      </div>
+      <div class="bp-pillar-card">
+        <div class="bp-icon-wrap">⚖️</div>
+        <h4>Regulatory &amp; Compliance Radar</h4>
+        <p>Complete roadmap for FSSAI, GST thresholds, local municipal trade permits, packaging laws, and state subsidies.</p>
+      </div>
+      <div class="bp-pillar-card">
+        <div class="bp-icon-wrap">🚀</div>
+        <h4>30/60/90-Day Execution Gantt</h4>
+        <p>Day-by-day flight checklist: zero-budget pre-sales in Month 1, pilot deployment in Month 2, and district scaling in Month 3.</p>
+      </div>
+    </div>
+
+    <div class="bp-curriculum-panel">
+      <div class="bp-curriculum-head">
+        <div>
+          <h3>What's Inside the 16-Section Dossier</h3>
+          <p>Every Blueprint is manually prepared and validated by senior territory researchers.</p>
+        </div>
+        <span class="bp-badge-counter">16 Modules • ~35 Pages</span>
+      </div>
+
+      <div class="bp-sections-grid">
+        <div class="bp-sec-item"><span class="bp-num">01</span><span>Founder &amp; Capital Fit Analysis</span></div>
+        <div class="bp-sec-item"><span class="bp-num">02</span><span>Local Territory Gap Analysis</span></div>
+        <div class="bp-sec-item"><span class="bp-num">03</span><span>Ideal Customer Profile &amp; Buying Habits</span></div>
+        <div class="bp-sec-item"><span class="bp-num">04</span><span>Hyperlocal Competitor &amp; Moat Map</span></div>
+        <div class="bp-sec-item"><span class="bp-num">05</span><span>The Low-Capital Entry Wedge</span></div>
+        <div class="bp-sec-item"><span class="bp-num">06</span><span>Pricing Matrix &amp; Value Proposition</span></div>
+        <div class="bp-sec-item"><span class="bp-num">07</span><span>Wholesale Mandi &amp; Supplier Directory</span></div>
+        <div class="bp-sec-item"><span class="bp-num">08</span><span>Supplier Negotiation Scripts</span></div>
+        <div class="bp-sec-item"><span class="bp-num">09</span><span>Packaging, Labeling &amp; Storage Specs</span></div>
+        <div class="bp-sec-item"><span class="bp-num">10</span><span>Logistics, Dispatch &amp; Cold-Chain</span></div>
+        <div class="bp-sec-item"><span class="bp-num">11</span><span>Unit Economics &amp; Contribution Margins</span></div>
+        <div class="bp-sec-item"><span class="bp-num">12</span><span>FSSAI, GST &amp; Municipal Clearances</span></div>
+        <div class="bp-sec-item"><span class="bp-num">13</span><span>Zero-CAC Local Marketing Playbook</span></div>
+        <div class="bp-sec-item"><span class="bp-num">14</span><span>WhatsApp &amp; Direct Sales Conversion</span></div>
+        <div class="bp-sec-item"><span class="bp-num">15</span><span>Hiring First 2 Helpers &amp; Labor SOPs</span></div>
+        <div class="bp-sec-item"><span class="bp-num">16</span><span>Day 1 to Day 90 Execution Gantt</span></div>
+      </div>
+    </div>
+
+    <div class="bp-buy-terminal">
+      <div class="bp-buy-content">
+        <div>
+          <h3>Ready to build this business with zero guesswork?</h3>
+          <p>Delivered as a secure digital package (PDF Dossier + Interactive Excel Unit Economics Sheet) via WhatsApp &amp; Email within 24–48 hours.</p>
+        </div>
+        <div class="bp-buy-action">
+          <span class="bp-strike">₹7,500</span>
+          <span class="bp-live-price price-text">₹2,499</span>
+          <button class="btn btn-primary btn-lg bp-cta-btn" style="margin-top:14px;" type="button" data-action="checkout" data-title="General Blueprint" data-id="GENERAL">Request Bespoke Blueprint →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 5. RESEARCH VIEW ======================= -->
+<section id="view-research" class="view">
+  <div class="container page-pad">
+    <div class="rs-layout">
+      <div class="rs-info">
+        <span class="eyebrow" style="margin-bottom:14px;">📍 PRIVATE FIELD INTELLIGENCE</span>
+        <h1 class="rs-headline">Commission Ground Research for Your City or PIN.</h1>
+        <p class="rs-subhead">When desktop research isn't enough, we deploy verified local investigators into wholesale mandis, factory clusters, and commercial hubs across India.</p>
+
+        <div class="rs-deliverables">
+          <div class="rs-deliv-card">
+            <div class="rs-deliv-icon">🏛️</div>
+            <div>
+              <h4>Wholesale Mandi &amp; Factory Rate Audits</h4>
+              <p>Direct wholesale price discovery, minimum order volumes (MOQ), and true production costs vs. retail markups.</p>
+            </div>
+          </div>
+          <div class="rs-deliv-card">
+            <div class="rs-deliv-icon">🔍</div>
+            <div>
+              <h4>Mystery Shopping &amp; Vendor Due Diligence</h4>
+              <p>We interview active competitors, verify licensing (FSSAI, GST, municipal), and identify unserved buyer clusters.</p>
+            </div>
+          </div>
+          <div class="rs-deliv-card">
+            <div class="rs-deliv-icon">📊</div>
+            <div>
+              <h4>Hyperlocal Demand &amp; Margin Sheet</h4>
+              <p>Custom Excel unit economics model calibrated for your exact district, labor rates, and logistics costs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rs-console">
+        <div class="rs-console-card">
+          <div class="rs-console-head">
+            <h3>Commissioning Console</h3>
+            <p>Select scope &amp; outline your deployment goals.</p>
+          </div>
+
+          <form id="research-form" novalidate>
+            <div class="rs-scope-wrap">
+              <label class="rs-label">Investigative Scope</label>
+              <select id="cr-package" style="display:none;">
+                <option value="Starter Research">Starter Research</option>
+                <option value="Deep Research" selected>Deep Research</option>
+                <option value="Ongoing Intelligence">Ongoing Intelligence</option>
+              </select>
+
+              <div class="rs-switcher">
+                <button type="button" class="rs-tab" data-pkg="Starter Research" onclick="setResearchPkg(this, 'Starter Research')">
+                  <b>Starter PIN</b><span>₹4,999 • 48 hrs</span>
+                </button>
+                <button type="button" class="rs-tab active" data-pkg="Deep Research" onclick="setResearchPkg(this, 'Deep Research')">
+                  <span class="rs-pop-pill">POPULAR</span>
+                  <b>Deep District</b><span>₹9,999 • 5 days</span>
+                </button>
+                <button type="button" class="rs-tab" data-pkg="Ongoing Intelligence" onclick="setResearchPkg(this, 'Ongoing Intelligence')">
+                  <b>Retained</b><span>₹19,999 / mo</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="rs-form-grid">
+              <div class="co-field"><label for="cr-name">Your Full Name <span class="req">*</span></label><input class="input rs-input" id="cr-name" required maxlength="80" placeholder="Rahul Sharma" /></div>
+              <div class="co-field"><label for="cr-phone">WhatsApp Number <span class="req">*</span></label><input class="input rs-input" id="cr-phone" type="tel" required maxlength="20" placeholder="+91 98301 XXXXX" /></div>
+              <div class="co-field"><label for="cr-email">Email <span class="req">*</span></label><input class="input rs-input" id="cr-email" type="email" required maxlength="120" placeholder="rahul@example.com" /></div>
+              <div class="co-field"><label for="cr-location">City &amp; PIN Code <span class="req">*</span></label><input class="input rs-input" id="cr-location" required maxlength="120" placeholder="e.g. Asansol 713301" /></div>
+              <div class="co-field"><label for="cr-capital">Deployment Capital <span class="req">*</span></label><input class="input rs-input" id="cr-capital" required maxlength="40" placeholder="e.g. ₹75,000 – ₹5,00,000" /></div>
+              <div class="co-field"><label for="cr-notes">Assets / Shop Space</label><input class="input rs-input" id="cr-notes" maxlength="1000" placeholder="e.g. 400 sq.ft shop, delivery bike..." /></div>
+            </div>
+
+            <label class="consent" style="margin: 14px 0 18px; padding: 10px 12px; font-size: 0.78rem;">
+              <input type="checkbox" id="cr-consent" required />
+              <span>I authorize GeoBiz senior analysts to contact me with the scope assessment and quotation.</span>
+            </label>
+
+            <button class="co-btn blue" type="submit" id="cr-submit" style="height:48px;font-size:0.96rem;">Deploy Territory Analyst →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 6. PRICING VIEW ======================= -->
+<section id="view-pricing" class="view">
+  <div class="container page-pad">
+    <div class="center">
+      <h1 class="h1" data-i18n="pr_title">Simple, transparent pricing</h1>
+      <p class="lead" style="margin-top:12px;" data-i18n="pr_sub">Clear options for every stage of your business journey.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price">
+        <h3>Free Discovery</h3><p class="sub">For founders exploring ideas.</p><div class="amt">₹0</div>
+        <ul><li>Browse all opportunities</li><li>Entry point &amp; first step</li><li>Location and category filters</li></ul>
+        <button class="btn btn-outline btn-block" type="button" data-action="nav" data-arg="explore">Browse All</button>
+      </div>
+      <div class="price" style="border: 2px solid #059669; background: color-mix(in srgb, #059669 4%, var(--card));">
+        <span class="tag" style="background:#059669;">IMPULSE PACK</span>
+        <h3>Starter Kit</h3><p class="sub">Instant action checklist for one idea.</p><div class="amt" style="color:#059669;">₹149</div>
+        <ul><li>Wholesale / Mandi sourcing guide</li><li>Profit &amp; breakeven sheet</li><li>7-day fast-track launch steps</li><li>Instant UPI activation</li></ul>
+        <button class="btn btn-primary btn-block" style="background:#059669;border-color:#059669;" type="button" data-action="quick-unlock" data-id="GENERAL" data-title="Opportunity Starter Kit">Unlock for ₹149 →</button>
+      </div>
+      <div class="price pop">
+        <span class="tag">POPULAR</span>
+        <h3>GeoBiz Blueprint</h3><p class="sub">Execution kit for one opportunity.</p><div class="amt price-text">₹2,499</div>
+        <ul><li>16-section execution guide</li><li>Supplier shortlist</li><li>Unit economics sheet</li><li>30/60/90-day milestones</li></ul>
+        <button class="btn btn-primary btn-block" type="button" data-action="nav" data-arg="blueprint">Request Blueprint →</button>
+      </div>
+      <div class="price">
+        <h3>Custom Research</h3><p class="sub">Analyst-led local investigation.</p><div class="amt">From ₹4,999</div>
+        <ul><li>PIN-code &amp; mandi research</li><li>Competitor pricing &amp; margins</li><li>Phone debrief with analyst</li></ul>
+        <button class="btn btn-outline btn-block" type="button" data-action="nav" data-arg="research">Request Research</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 7. DASHBOARD VIEW ======================= -->
+<section id="view-dashboard" class="view">
+  <div class="container page-pad">
+    <h1 class="h2">My Workspace</h1>
+    <p class="muted" style="margin-top:6px;">Saved ideas and requests. Stored in this browser.</p>
+    <div class="dash-grid">
+      <div class="dash-card"><h3>Saved Opportunities</h3><div id="dash-saved"></div></div>
+      <div class="dash-card"><h3>Orders &amp; Inquiries</h3><div id="dash-orders"></div></div>
+    </div>
+    <div style="margin-top:24px;"><button class="btn btn-outline btn-sm" type="button" data-action="clear-local">Clear data saved in this browser</button></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="color:var(--text);margin-bottom:12px;"><span class="brand-mark" aria-hidden="true"></span><span>GeoBiz</span></div>
+        <p style="max-width:340px;">Business opportunity intelligence built around local demand gaps and beginner-friendly entry points across India.</p>
+      </div>
+      <div><h5>Explore</h5><ul>
+        <li><a href="#explore" data-action="nav" data-arg="explore">All opportunities</a></li>
+        <li><a href="#finder" data-action="finder">Find my fit</a></li>
+      </ul></div>
+      <div><h5>Commercial</h5><ul>
+        <li><a href="#blueprint" data-action="nav" data-arg="blueprint">Blueprint</a></li>
+        <li><a href="#research" data-action="nav" data-arg="research">Custom research</a></li>
+        <li><a href="#pricing" data-action="nav" data-arg="pricing">Pricing</a></li>
+      </ul></div>
+      <div><h5>Legal</h5><ul>
+        <li><a href="#" data-action="legal" data-arg="disclaimer">Income disclaimer</a></li>
+        <li><a href="#" data-action="legal" data-arg="privacy">Privacy policy</a></li>
+        <li><a href="#" data-action="legal" data-arg="terms">Terms of service</a></li>
+        <li><a href="#" data-action="legal" data-arg="refund">Refund policy</a></li>
+      </ul></div>
+    </div>
+    <div style="text-align:center;padding-top:24px;font-size:0.8rem;color:var(--muted);">© 2026 GeoBiz. Decision-support only — not investment advice.</div>
+  </div>
+</footer>
+
+<nav class="tabbar" aria-label="Mobile">
+  <a class="tab active" href="#home" data-action="nav" data-arg="home" data-tab="home"><i>🏠</i><span>Home</span></a>
+  <a class="tab" href="#explore" data-action="nav" data-arg="explore" data-tab="explore"><i>🔍</i><span>Explore</span></a>
+  <a class="tab" href="#blueprint" data-action="nav" data-arg="blueprint" data-tab="blueprint"><i>💎</i><span>Blueprint</span></a>
+  <a class="tab" href="#dashboard" data-action="nav" data-arg="dashboard" data-tab="dashboard"><i>👤</i><span>Me</span></a>
+</nav>
+
+<!-- Modals -->
+<div class="overlay" id="m-filters" role="dialog" aria-modal="true" aria-label="Filters" data-close>
+  <div class="sheet">
+    <button class="icon-btn x" type="button" data-action="close" aria-label="Close">✕</button>
+    <h3>Filters</h3>
+    <div id="facets-sheet" style="margin-top:14px;"></div>
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button class="btn btn-outline" type="button" data-action="reset">Reset</button>
+      <button class="btn btn-primary" style="flex:1;" type="button" data-action="close">Show results</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="m-starter" role="dialog" aria-modal="true" aria-labelledby="starter-heading" data-close>
+  <div class="sheet">
+    <button class="icon-btn x" type="button" data-action="close" aria-label="Close">✕</button>
+    <div id="starter-form-wrap">
+      <div class="co-header">
+        <span class="co-badge green">⚡ Instant Digital Unlock</span>
+        <h3 class="co-title" id="starter-heading">Opportunity Starter Kit</h3>
+        <p class="co-subtitle" id="starter-item-title">Selected Opportunity</p>
+      </div>
+
+      <div class="co-summary-card">
+        <div class="co-summary-row">
+          <span class="co-summary-name">Fast-Track Dossier + Excel Model</span>
+          <div class="co-summary-prices">
+            <span class="strike">₹999</span>
+            <span class="final" style="color:#059669;">₹149</span>
+          </div>
+        </div>
+        <div class="co-checklist">
+          <div><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Verified Mandi &amp; Supplier Directory</div>
+          <div><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Plug-and-Play Margin &amp; Breakeven Calculator</div>
+          <div><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 7-Day Ground Validation Checklist</div>
+        </div>
+      </div>
+
+      <form id="starter-form" novalidate>
+        <div class="co-field">
+          <label for="st-name">Your Full Name</label>
+          <div class="co-input-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input id="st-name" required minlength="2" placeholder="Rahul Sharma" autocomplete="name" />
+          </div>
+        </div>
+
+        <div class="co-field">
+          <label for="st-phone">WhatsApp Number (For Direct Delivery)</label>
+          <div class="co-input-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <input id="st-phone" type="tel" required pattern="[0-9]{10}" placeholder="10-digit mobile number" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="co-field">
+          <label for="st-email">Email Address</label>
+          <div class="co-input-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <input id="st-email" type="email" required placeholder="rahul@example.com" autocomplete="email" />
+          </div>
+        </div>
+
+        <button class="co-btn emerald" type="submit" id="st-submit">Pay ₹149 &amp; Unlock Instantly via UPI →</button>
+      </form>
+    </div>
+
+    <div id="starter-pay-wrap" hidden style="text-align:center;padding:8px 0;">
+      <span class="co-badge green">UPI Fast-Checkout</span>
+      <h3 style="font-size:1.25rem;font-weight:800;margin:6px 0 2px;">Scan to Complete Order</h3>
+      <p class="muted" style="font-size:0.82rem;margin-bottom:12px;">Scan using any UPI app to receive your download link.</p>
+      <div id="upi-qr-box" style="margin:0 auto;display:inline-block;padding:12px;background:#ffffff;border-radius:14px;border:1px solid var(--line);"></div>
+      <div style="margin-top:14px;"><a id="upi-direct-link" href="#" class="co-btn blue" style="text-decoration:none;">Open in Installed UPI App</a></div>
+      <div style="margin-top:10px;"><button class="btn btn-outline btn-block" type="button" data-action="verify-starter" style="font-size:0.86rem;">I Have Completed Payment</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="m-checkout" role="dialog" aria-modal="true" aria-labelledby="chk-heading" data-close>
+  <div class="sheet">
+    <button class="icon-btn x" type="button" data-action="close" aria-label="Close">✕</button>
+    <div id="chk-form-wrap">
+      <div class="co-header">
+        <span class="co-badge blue">💎 Institutional Roadmap</span>
+        <h3 class="co-title" id="chk-heading">GeoBiz Full Blueprint</h3>
+        <p class="co-subtitle" id="chk-item">Selected Opportunity</p>
+      </div>
+
+      <div class="co-summary-card">
+        <div class="co-summary-row">
+          <span class="co-summary-name">16-Section Operational License</span>
+          <div class="co-summary-prices">
+            <span class="strike">₹7,500</span>
+            <span class="final" style="color:var(--accent);">₹2,499</span>
+          </div>
+        </div>
+        <div class="co-checklist">
+          <div><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#2563eb" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 3-Year Unit Economics &amp; Margin Spreadsheet</div>
+          <div><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#2563eb" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Verified Local Supplier &amp; Mandi Shortlist</div>
+          <div><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#2563eb" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 30/60/90-Day Step-by-Step Milestones</div>
+        </div>
+      </div>
+
+      <form id="checkout-form" novalidate>
+        <div class="co-field"><label for="chk-name">Your Full Name</label><div class="co-input-box"><input id="chk-name" required minlength="2" placeholder="Rahul Sharma" /></div></div>
+        <div class="co-field"><label for="chk-email">Work / Personal Email</label><div class="co-input-box"><input id="chk-email" type="email" required placeholder="rahul@domain.com" /></div></div>
+        <div class="co-field"><label for="chk-phone">WhatsApp Contact Number</label><div class="co-input-box"><input id="chk-phone" type="tel" required pattern="[0-9]{10}" placeholder="10-digit mobile number" /></div></div>
+        <label class="consent" style="margin: 12px 0 16px; padding: 10px 12px; font-size: 0.78rem;">
+          <input type="checkbox" id="chk-consent" required /><span>I agree to receive the verified territory invoice and preparation updates.</span>
+        </label>
+        <button class="co-btn blue" type="submit" id="chk-submit">Confirm Request &amp; Send Invoice →</button>
+      </form>
+    </div>
+
+    <div class="success" id="chk-success" hidden style="padding:16px 0;">
+      <div class="tick">✓</div>
+      <h3 style="font-size:1.3rem;font-weight:800;margin-top:6px;">Request Confirmed</h3>
+      <p class="muted" style="margin:6px 0 12px;font-size:0.86rem;">Check WhatsApp for payment and verification details.</p>
+      <div style="background:var(--bg-2);border:1px solid var(--line);padding:8px 16px;border-radius:8px;font-weight:800;" id="chk-order-id"></div>
+      <div style="margin-top:20px;"><button class="btn btn-outline btn-block" type="button" data-action="close">Close</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="m-legal" role="dialog" aria-modal="true" aria-labelledby="legal-title" data-close>
+  <div class="sheet wide">
+    <button class="icon-btn x" type="button" data-action="close" aria-label="Close">✕</button>
+    <div style="font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--accent)" id="legal-tag"></div>
+    <h3 id="legal-title" style="margin:4px 0 16px"></h3>
+    <div class="legal-body" id="legal-body"></div>
+  </div>
+</div>
+
+<div class="overlay" id="m-analyzer" role="dialog" aria-modal="true" aria-label="Analysing">
+  <div class="sheet analyzer">
+    <h3 data-i18n="an_title">GeoBiz is matching…</h3>
+    <p class="muted" style="margin-bottom:14px" id="an-sub"></p>
+    <div id="an-stages"></div>
+  </div>
+</div>
+
+<div id="toasts" aria-live="polite"></div>
+
+<!-- ==========================================================================
+     MAIN SCRIPT ENGINE (GITHUB PAGES TO GOOGLE APPS SCRIPT BRIDGE)
+     ========================================================================== -->
+<script>
+var APP = { price: 2499, starterPrice: 149, appUrl: '', demo: false };
+var $ = function (s, r) { return (r || document).querySelector(s); };
+var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function inr(n) { return '₹' + Number(n).toLocaleString('en-IN'); }
+function cleanString(v) { return (v === null || v === undefined) ? '' : String(v).trim(); }
+
+var store = {
+  get: function (k, d) { try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+};
+
+var I18N = {
+  en: {
+    skip: 'Skip to content', nav_explore: 'Explore', nav_find: 'Find my fit', nav_blueprint: 'Blueprint', nav_research: 'Research', nav_pricing: 'Pricing',
+    hero_badge: 'LIVE AUDIT ENGINE • ACTIVE ACROSS 19,000+ PIN CODES',
+    hero_title: 'Verified business opportunities, engineered for your exact location.',
+    hero_sub: 'Tell GeoBiz your PIN code, available capital, and ground skills. We match you with validated, high-yield business models based on direct mandi wholesale pricing.',
+    search_ph: 'Search by city, PIN code or business model…', btn_search: 'Search Catalog',
+    cta_find: '⚡ Configure My Founder Profile', cta_explore: 'Browse Live Directory →',
+    stat_opps: 'Verified Ventures', stat_locs: 'Active Districts', stat_cats: 'Sectors Covered',
+    wz_title: 'Configure Your Deployment Profile', wz_sub: '3 quick steps. We rank local opportunities based on your PIN code, niche, and ground skills.',
+    wz_s1: 'PHASE 1 · TERRITORY & LOCATION', wz_s2: 'PHASE 2 · FOUNDER COMPETENCIES', wz_s3: 'PHASE 3 · CAPITAL & COMMITMENT',
+    f_name: 'Your Name', f_state: 'State', f_city: 'City / District', f_pin: 'PIN Code', f_edu: 'Education Level', f_skill: 'Primary Strength / Skill', f_niche: 'Preferred Industry Niche', any_niche: 'Any High-Margin Niche',
+    f_capital: 'Available Capital', f_goal: 'Target Monthly Profit', f_time: 'Daily Time Commitment', f_risk: 'Risk Appetite',
+    consent_lead: 'I authorize GeoBiz to analyze these parameters to rank verified local opportunities. Data is private and never sold.',
+    match_note: 'Automated ranking indexes PIN density, competitor counts, and skill wedges.',
+    btn_next: 'Next Step →', btn_back: 'Back', btn_match: 'Show My Matches →',
+    how_title: 'From zero to your first profitable territory sale.',
+    how1t: 'Profile Your Territory', how1d: 'Tell us your city, PIN code, working capital, and physical strengths.',
+    how2t: 'Algorithm Local Ranking', how2d: 'Our engine ranks opportunities where wholesale margins exceed 35%.',
+    how3t: 'Inspect the Entry Wedge', how3d: 'Review the low-capital starting point and 7-day validation experiment.',
+    how4t: 'Execute Before Spending', how4d: 'Validate local buyer demand with zero ad spend before committing capital.',
+    final_title: 'Your next high-margin business is already in your district.', final_sub: 'Stop searching for abstract SaaS ideas. Start with local demand, verified wholesale suppliers, and immediate cash flow.',
+    sort_new: 'Newest verified', sort_old: 'Oldest first', sort_az: 'Title A–Z', lbl_results: 'opportunities',
+    card_disclaimer: 'Estimated yields are mathematical models derived from local unit economics, not guaranteed income. Verify customer demand, supplier prices, and trade licenses (FSSAI, GST) before committing capital.',
+    yield_lbl: 'Estimated Monthly Net Profit', btn_view: 'View', btn_save: 'Save', btn_saved: 'Saved',
+    lvl_Detailed: 'Detailed entry', lvl_Standard: 'Standard entry', lvl_Brief: 'Brief entry',
+    btn_back_explore: 'Back to All Opportunities', btn_share: 'Share',
+    r_pin: 'Same PIN', r_nearby: 'Nearby PIN', r_city: 'Your city', r_state: 'Your state', r_niche: 'Niche match', r_skill: 'Skill',
+    mb_title: 'Matches for', mb_sub_n: 'ranked by location, niche and skills', mb_none: 'No direct match found. Showing the latest opportunities instead.', btn_clear_match: 'Show all',
+    empty_t: 'No opportunities match your filters.', empty_d: 'Try different words or clear the filters.', btn_clear_filters: 'Clear filters',
+    err_t: 'We could not load opportunities right now.', btn_retry: 'Try again',
+    bp_title: 'Go beyond the idea. Get the Blueprint.', bp_sub: 'A bespoke 35+ page execution manual tailored for your exact territory—complete with unit economics sheets, verified supplier rosters, and a 90-day milestone Gantt roadmap.',
+    rs_title: 'Need custom research for your own city or PIN?', rs_sub: 'Commission a dedicated GeoBiz field researcher to investigate local mandis, supplier price gaps, and unserved territory demand.',
+    btn_submit_req: 'Deploy Territory Analyst →', pr_title: 'Simple, transparent pricing', pr_sub: 'Clear options for every stage of your business journey.',
+    chk_title: 'Request your Blueprint',
+    an_title: 'GeoBiz is matching…', an_s1: 'Indexing territory footprint', an_s2: 'Checking local mandi price spreads', an_s3: 'Evaluating founder competencies', an_s4: 'Generating ranked opportunity memo',
+    t_saved: 'Saved', t_removed: 'Removed', t_copied: 'Link copied', t_req_ok: 'Request submitted. We will contact you soon.', t_fail: 'Something went wrong. Please try again.',
+    t_demo: 'Preview mode: running on simulated dataset.', t_cleared: 'Local data cleared', t_fix: 'Please fill the highlighted fields.',
+    sync_live: 'opportunities available', sync_demo: 'Simulated data mode. Connect a live Apps Script URL to go live.', sync_err: 'Live data is unavailable right now.'
+  }
+};
+
+var LEGAL = {
+  disclaimer: { tag: 'Decision support', title: 'Income & Opportunity Disclaimer', html: '<p><strong>1. Decision support only.</strong> GeoBiz helps you think through business ideas. It does not offer investment advice or guaranteed returns.</p><p><strong>2. Estimates, not promises.</strong> Figures labelled “Estimated monthly yield” are illustrative models based on local unit economics.</p>' },
+  privacy: { tag: 'Data protection', title: 'Privacy Policy', html: '<p><strong>1. What we collect.</strong> Only what you submit into our forms.</p><p><strong>2. Confidentiality.</strong> We do not sell your personal details to third parties.</p>' },
+  terms: { tag: 'Platform agreement', title: 'Terms of Service', html: '<p><strong>1. Personal licence.</strong> Blueprints and Starter Kits are licensed for your individual business execution.</p>' },
+  refund: { tag: 'Commercial terms', title: 'Refund Policy', html: '<p><strong>1. Digital products.</strong> Instant digital downloads delivered via WhatsApp/Email are non-refundable once dispatched.</p>' }
+};
+
+var S = {
+  lang: 'en', view: 'home', list: [], total: 0, filtered: 0, pages: 1, page: 1,
+  filters: { search: '', category: 'All', location: 'All', founderProfile: 'All', sort: 'newest' },
+  facets: { categories: [], locations: [], founderProfiles: [] },
+  match: null, detail: null, loadSeq: 0, wz: 1,
+  saved: store.get('geobiz_saved_v2', []), orders: store.get('geobiz_orders_v2', []), lastFocus: null
+};
+
+function t(k) { return (I18N[S.lang] && I18N[S.lang][k]) || I18N.en[k] || k; }
+
+/* 2. UNIVERSAL GITHUB TO APPS SCRIPT SERVER BRIDGE */
+function serverRequest(action, params) {
+  params = params || {};
+  params.action = action;
+
+  return new Promise(function (resolve, reject) {
+    if (typeof google !== 'undefined' && google.script && google.script.run) {
+      google.script.run.withSuccessHandler(resolve).withFailureHandler(reject).apiBridge(action, params);
+      return;
+    }
+
+    if (typeof GAS_API_URL !== 'undefined' && GAS_API_URL && GAS_API_URL.indexOf('http') === 0) {
+      fetch(GAS_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(params)
+      })
+      .then(function(res) { return res.json(); })
+      .then(resolve)
+      .catch(function(err) {
+        console.error('GAS API Fetch Error:', err);
+        reject(err);
+      });
+      return;
+    }
+
+    APP.demo = true;
+    setTimeout(function () {
+      try { resolve(Demo.handle(action, params)); } catch (e) { reject(e); }
+    }, 250);
+  });
+}
+
+var Demo = (function () {
+  var R = [
+    ['Pre-order fresh produce boxes', 'Hyperlocal Retail', 'Collect pre-orders from housing societies, buy direct from the nearest mandi at dawn and deliver by two-wheeler the same morning.', 'Add dairy and pantry staples, then a collection point per society cluster.', 'Message 20 neighbours this week and ask which five vegetables they buy most often.', '₹25,000–₹45,000 / month', 'Garia, Kolkata 700084', 'Sales / Logistics'],
+    ['Hand-tool rental for small farms', 'Agricultural Tools', 'Rent sprayers, weeders and small pumps by the day to small farmers who cannot justify buying them.', 'Add repair service and seasonal bundles, then a second village.', 'Visit the local input shop and ask which three tools farmers ask for.', '₹20,000–₹35,000 / month', 'Purbasthali, Purba Bardhaman 713513', 'Farming / Mechanical'],
+    ['Bulk millet and grain repacking', 'B2B Processing', 'Buy 50 kg bags, clean and repack in 1 kg and 5 kg packs under your own label for kirana shops and canteens.', 'Add flours and ready-mixes, then supply to small restaurants.', 'Get quotes for three bag sizes from two wholesalers.', '₹30,000–₹60,000 / month', 'Asansol, Paschim Bardhaman 713301', 'Sales / Graduate'],
+    ['Cold-chain ice pack and crate supply', 'B2B Processing', 'Supply reusable ice packs and insulated crates to local fish and dairy sellers.', 'Add short-term cold storage space for vendors.', 'Ask five fish sellers what they spend on ice per day.', '₹28,000–₹50,000 / month', 'Belerhat, Purba Bardhaman 713151', 'Logistics']
+  ].map(function (a, i) {
+    var pin = (a[6].match(/\b[1-9][0-9]{5}\b/) || [null])[0];
+    return {
+      id: 'demo-' + (i + 1), rawId: String(i + 1), rowIndex: i + 1, title: a[0], category: a[1], wedge: a[2],
+      scalePath: a[3], firstStep: a[4], estYield: a[5], location: a[6], locationKey: a[6].split(',')[0],
+      pinCode: pin, founderProfile: a[7], dateAdded: 'Oct 2026', detailLevel: 'Detailed'
+    };
+  });
+
+  function handle(a, p) {
+    if (a === 'meta') return { success: true, totalRecords: R.length, facets: { categories: [{v:'Hyperlocal Retail',n:1},{v:'Agricultural Tools',n:1},{v:'B2B Processing',n:2}], locations: [{v:'Garia',n:1},{v:'Purbasthali',n:1},{v:'Asansol',n:1},{v:'Belerhat',n:1}], founderProfiles: [{v:'Sales',n:2},{v:'Farming',n:1},{v:'Logistics',n:1}] }, blueprintPrice: 2499 };
+    if (a === 'detail') { var d = R.filter(function (r) { return r.id === p.id; })[0]; return d ? { success: true, data: d } : { success: false }; }
+    if (a === 'list') return { success: true, totalRecords: R.length, filteredCount: R.length, totalPages: 1, currentPage: 1, data: R };
+    if (a === 'match') return { success: true, fallback: false, totalMatches: R.length, data: R };
+    if (a === 'order_starter') {
+      var id = 'ST-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+      var upi = 'upi://pay?pa=geobiz@upi&pn=GeoBiz%20Intelligence&am=149&cu=INR&tn=' + id;
+      return { success: true, orderId: id, amount: 149, upiIntent: upi, qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(upi) };
+    }
+    if (a === 'order_blueprint') return { success: true, orderId: 'BP-' + Math.random().toString(36).slice(2, 8).toUpperCase() };
+    if (a === 'request_research') return { success: true, requestId: 'RES-' + Math.random().toString(36).slice(2, 8).toUpperCase() };
+    if (a === 'save_lead') return { success: true, leadId: 'LD-' + Math.random().toString(36).slice(2, 8).toUpperCase() };
+    return { success: false };
+  }
+  return { handle: handle };
+})();
+
+function toast(msg, isErr) {
+  var el = document.createElement('div');
+  el.className = 'toast' + (isErr ? ' err' : '');
+  el.textContent = msg;
+  $('#toasts').appendChild(el);
+  setTimeout(function () { el.style.opacity = '0'; setTimeout(function () { el.remove(); }, 300); }, 3400);
+}
+
+function openModal(id) {
+  S.lastFocus = document.activeElement;
+  var m = document.getElementById(id);
+  if (!m) return;
+  m.classList.add('open');
+  document.body.classList.add('no-scroll');
+  var f = m.querySelector('input, select, button.btn-primary, button');
+  if (f) setTimeout(function () { try { f.focus({ preventScroll: true }); } catch (e) {} }, 60);
+}
+function closeModals() {
+  $$('.overlay.open').forEach(function (m) { if (m.id !== 'm-analyzer') m.classList.remove('open'); });
+  if (!$('.overlay.open')) document.body.classList.remove('no-scroll');
+  if (S.lastFocus && S.lastFocus.focus) { try { S.lastFocus.focus({ preventScroll: true }); } catch (e) {} }
+}
+
+function getIndustryIcon(str) {
+  var s = (str || '').toLowerCase();
+  if (s.indexOf('agri') > -1 || s.indexOf('farm') > -1 || s.indexOf('veg') > -1) return '🌾';
+  if (s.indexOf('milk') > -1 || s.indexOf('food') > -1 || s.indexOf('tiffin') > -1) return '🥛';
+  if (s.indexOf('retail') > -1 || s.indexOf('shop') > -1 || s.indexOf('box') > -1) return '🛍️';
+  if (s.indexOf('tool') > -1 || s.indexOf('mfg') > -1 || s.indexOf('process') > -1) return '⚙️';
+  if (s.indexOf('supply') > -1 || s.indexOf('crate') > -1 || s.indexOf('cold') > -1) return '🚚';
+  return '💼';
+}
+
+function cardHtml(o) {
+  o = o || {};
+  var ring = typeof o.matchScore === 'number'
+    ? '<div class="match-ring" style="--p:' + o.matchScore + '" aria-label="Match ' + o.matchScore + '%">' + o.matchScore + '%</div>' : '';
+  
+  var lvlCls = o.detailLevel === 'Detailed' ? 'good' : (o.detailLevel === 'Brief' ? 'warn' : '');
+  var rawCat = (o.category && typeof o.category === 'string') ? o.category.trim() : 'Business';
+  var cleanCat = rawCat.length > 18 ? rawCat.substring(0, 16).trim() + '…' : rawCat;
+  var icon = getIndustryIcon(o.title + ' ' + rawCat);
+
+  var title = esc(o.title || 'Untitled Opportunity');
+  var loc = esc(o.location || 'Location upon request');
+  var yieldText = esc(o.estYield || 'Market Rate');
+  var wedge = esc(o.wedge || '');
+
+  return '<article class="card modern-opp-card">' +
+    '<a class="card-open" href="#detail/' + encodeURIComponent(o.id) + '" data-action="open" data-id="' + esc(o.id) + '" aria-label="' + title + '"></a>' +
+    '<div>' +
+      '<div class="opp-card-top">' +
+        '<div class="opp-badge-row">' +
+          '<span class="opp-cat-pill">' + icon + ' ' + esc(cleanCat.toUpperCase()) + '</span>' +
+          '<span class="pill ' + lvlCls + '">' + esc(t('lvl_' + (o.detailLevel || 'Standard'))) + '</span>' +
+        '</div>' +
+        ring +
+      '</div>' +
+      '<h3 class="opp-card-title">' + title + '</h3>' +
+      '<div class="opp-card-loc">📍 ' + loc + '</div>' +
+      '<div class="opp-metric-strip">' +
+        '<div class="opp-metric-col"><small>Est. Net Profit</small><b>' + yieldText + '</b></div>' +
+        '<div class="opp-metric-col right"><small>Local Demand</small><span class="opp-status-badge">🔥 High Gap</span></div>' +
+      '</div>' +
+      '<p class="opp-card-summary">' + wedge + '</p>' + 
+    '</div>' +
+    '<div class="card-foot opp-card-actions">' +
+      '<div class="opp-btn-split">' +
+        '<button class="btn opp-save-btn" type="button" data-action="save" data-id="' + esc(o.id) + '">' + 
+          (isSaved(o.id) ? '★ Saved' : '☆ Save') + 
+        '</button>' +
+        '<button class="btn opp-memo-btn" type="button" data-action="open" data-id="' + esc(o.id) + '">' + 
+          'Full Dossier →' +
+        '</button>' +
+      '</div>' +
+      '<button class="btn opp-starter-cta" type="button" data-action="quick-unlock" data-id="' + esc(o.id) + '" data-title="' + title + '">' +
+        '⚡ Unlock 7-Day Starter Kit (₹149)' +
+      '</button>' +
+    '</div>' +
+  '</article>';
+}
+
+function renderDetail(o) {
+  o = o || {};
+
+  var dockCat = $('#dock-opp-cat');
+  var dockTitle = $('#dock-opp-title');
+  var dockStBtn = $('#dock-starter-btn');
+  var dockBpBtn = $('#dock-bp-btn');
+
+  if (dockCat) dockCat.textContent = o.category || 'OPPORTUNITY DOSSIER';
+  if (dockTitle) dockTitle.textContent = o.title || '';
+  if (dockStBtn) {
+    dockStBtn.dataset.id = o.id || '';
+    dockStBtn.dataset.title = o.title || '';
+  }
+  if (dockBpBtn) {
+    dockBpBtn.dataset.id = o.id || '';
+    dockBpBtn.dataset.title = o.title || '';
+  }
+
+  var lvlCls = o.detailLevel === 'Detailed' ? 'good' : (o.detailLevel === 'Brief' ? 'warn' : '');
+  var cat = esc(o.category || 'Business');
+  var title = esc(o.title || 'Untitled Opportunity');
+
+  $('#detail-content').innerHTML =
+    '<div class="dossier-wrap">' +
+      '<div class="dossier-main">' +
+        '<div class="dossier-hero">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">' +
+            '<div class="pill-row" style="margin-bottom:0;">' +
+              '<span class="pill" style="background:var(--accent);color:#fff;font-weight:800;">CONFIDENTIAL MEMO</span>' +
+              '<span class="pill">🏷️ ' + cat + '</span>' +
+              '<span class="pill ' + lvlCls + '">' + esc(t('lvl_' + (o.detailLevel || 'Standard'))) + '</span>' +
+            '</div>' +
+            '<div style="display:flex;gap:8px;">' +
+              '<button class="btn btn-outline btn-sm" type="button" data-action="save" data-id="' + esc(o.id) + '">' + 
+                (isSaved(o.id) ? '★ Saved' : '☆ Save') + 
+              '</button>' +
+              '<button class="btn btn-outline btn-sm" type="button" data-action="share" data-id="' + esc(o.id) + '">🔗 Share</button>' +
+            '</div>' +
+          '</div>' +
+
+          '<h1>' + title + '</h1>' +
+          '<div class="dossier-meta">' +
+            '<span>📍 ' + esc(o.location || 'All India') + '</span>' +
+            '<span>👤 Field Researcher: ' + esc(o.founderProfile || 'Pradip Mondal') + '</span>' +
+            '<span>🗓 Verified: ' + esc(o.dateAdded || 'October 2026') + '</span>' +
+          '</div>' +
+
+          '<div class="memo-stats">' +
+            '<div class="memo-stat-card good"><small>Est. Monthly Yield</small><b>' + esc(o.estYield || 'Market Rate') + '</b></div>' +
+            '<div class="memo-stat-card"><small>Validated Territory</small><b>' + esc(o.locationKey || 'Regional') + '</b></div>' +
+            '<div class="memo-stat-card accent"><small>Market Competition</small><b>Low Entry Barrier</b></div>' +
+          '</div>' +
+        '</div>' +
+
+        '<div class="dossier-section"><h3>🎯 The Market Wedge &amp; Entry Angle</h3><p>' + esc(o.wedge || 'Market analysis in progress.') + '</p></div>' +
+        '<div class="dossier-section"><h3>🚀 7-Day Ground Validation Checklist</h3><div class="action-callout"><span class="action-badge">Step 1 — Zero Capital Test</span><p>👉 ' + esc(o.firstStep || 'Conduct 10 buyer surveys before committing capital.') + '</p></div></div>' +
+        '<div class="dossier-section"><h3>📈 Scale Path &amp; Expansion Horizon</h3><p>' + esc(o.scalePath || 'Standard district expansion model.') + '</p></div>' +
+
+        '<div class="obsidian-paywall">' +
+          '<h3>Ready to launch ' + title + '?</h3>' +
+          '<p>Get the verified wholesaler supply directory, local price sheets, and operational roadmap.</p>' +
+          '<div class="teaser-preview-grid">' +
+            '<div class="teaser-item">✓ Wholesaler &amp; Mandi Shortlist</div>' +
+            '<div class="teaser-item">✓ Breakeven Excel Model</div>' +
+            '<div class="teaser-item">✓ 30/60/90-Day Milestones</div>' +
+          '</div>' +
+          '<div class="obsidian-actions">' +
+            '<button class="btn btn-lg btn-starter" type="button" data-action="quick-unlock" data-id="' + esc(o.id) + '" data-title="' + title + '">⚡ Unlock Starter Kit (₹149)</button>' +
+            '<button class="btn btn-lg btn-blueprint" type="button" data-action="checkout" data-id="' + esc(o.id) + '" data-title="' + title + '">Request Full Blueprint (₹2,499)</button>' +
+          '</div>' +
+        '</div>' +
+
+      '</div>' +
+    '</div>';
+}
+
+function openStarterCheckout(id, title) {
+  var modal = document.getElementById('m-starter');
+  if (!modal) return;
+  var form = document.getElementById('starter-form');
+  if (form) {
+    form.dataset.oppId = id || 'GENERAL';
+    form.dataset.oppTitle = title || 'Opportunity Starter Kit';
+  }
+  var itemTitle = document.getElementById('starter-item-title');
+  if (itemTitle) itemTitle.textContent = title || '';
+  $('#starter-form-wrap').hidden = false;
+  $('#starter-pay-wrap').hidden = true;
+  openModal('m-starter');
+}
+
+function submitStarterPayment(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn = $('#st-submit');
+  btn.disabled = true;
+
+  var payload = {
+    opportunityId: form.dataset.oppId || 'GENERAL',
+    opportunityTitle: form.dataset.oppTitle || 'Opportunity Starter Kit',
+    name: $('#st-name').value.trim(),
+    phone: $('#st-phone').value.trim(),
+    email: $('#st-email').value.trim()
+  };
+
+  serverRequest('order_starter', payload).then(function (r) {
+    if (!r || !r.success) {
+      toast(r && r.error ? r.error : t('t_fail'), true);
+      return;
+    }
+    S.orders.push({ orderId: r.orderId, title: payload.opportunityTitle, date: new Date().toLocaleDateString('en-IN'), plan: 'Starter Kit ₹149' });
+    store.set('geobiz_orders_v2', S.orders);
+
+    var qrBox = $('#upi-qr-box');
+    if (qrBox && r.qrUrl) {
+      qrBox.innerHTML = '<img src="' + r.qrUrl + '" width="200" height="200" alt="UPI QR" style="display:block;margin:0 auto;border-radius:8px;" />';
+    }
+    var linkBtn = $('#upi-direct-link');
+    if (linkBtn && r.upiIntent) linkBtn.href = r.upiIntent;
+
+    $('#starter-form-wrap').hidden = true;
+    $('#starter-pay-wrap').hidden = false;
+  }).catch(function () {
+    toast(t('t_fail'), true);
+  }).then(function () {
+    btn.disabled = false;
+  });
+}
+
+function setWizardStep(n) {
+  S.wz = n;
+  $$('.wz-step').forEach(function (s) { s.classList.toggle('active', Number(s.dataset.step) === n); });
+  $$('#wz-progress div').forEach(function (d, i) { d.classList.toggle('done', i < n); });
+  var stepIndicator = document.getElementById('wz-step-num');
+  if (stepIndicator) stepIndicator.textContent = n;
+  var backBtn = $('#wz-back');
+  if (backBtn) backBtn.style.visibility = n === 1 ? 'hidden' : 'visible';
+  var nextBtn = $('#wz-next');
+  if (nextBtn) nextBtn.textContent = n === 3 ? t('btn_match') : t('btn_next');
+}
+
+function setResearchPkg(btn, pkgName) {
+  document.querySelectorAll('.rs-tab').forEach(function(el) { el.classList.remove('active'); });
+  btn.classList.add('active');
+  var sel = document.getElementById('cr-package');
+  if (sel) sel.value = pkgName;
+}
+
+function navigate(view, arg, pushHash) {
+  var VIEWS = ['home', 'explore', 'detail', 'blueprint', 'research', 'pricing', 'dashboard'];
+  if (VIEWS.indexOf(view) < 0) view = 'home';
+  S.view = view;
+  $$('.view').forEach(function (v) { v.classList.remove('active'); });
+  var target = document.getElementById('view-' + view);
+  if (target) target.classList.add('active');
+  $$('[data-nav]').forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-nav') === view); });
+  $$('[data-tab]').forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-tab') === view || (view === 'detail' && a.getAttribute('data-tab') === 'explore')); });
+  window.scrollTo(0, 0);
+
+  if (pushHash !== false) {
+    try { var h = view === 'detail' && arg ? '#detail/' + arg : '#' + view; if (location.hash !== h) history.pushState(null, '', h); } catch (e) {}
+  }
+  if (view === 'explore' && !S.list.length && !S.match) loadOpportunities(1);
+  if (view === 'detail' && arg) openDetail(arg);
+  if (view === 'dashboard') renderDashboard();
+}
+
+function route() {
+  var h = (location.hash || '').replace(/^#/, '');
+  if (!h) return navigate('home', null, false);
+  var parts = h.split('/');
+  if (parts[0] === 'detail' && parts[1]) return navigate('detail', decodeURIComponent(parts[1]), false);
+  if (parts[0] === 'finder') { navigate('home', null, false); return focusFinder(); }
+  navigate(parts[0], null, false);
+}
+
+function focusFinder() {
+  if (S.view !== 'home') navigate('home');
+  setTimeout(function () {
+    var el = $('#finder-section'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+}
+
+function renderSyncBar(err) {
+  var bar = $('#announce'), txt = $('#sync-text');
+  if (!bar || !txt) return;
+  bar.classList.toggle('demo', APP.demo || !!err);
+  if (err) txt.textContent = t('sync_err');
+  else if (APP.demo) txt.textContent = t('sync_demo');
+  else txt.textContent = (S.totalRecords || 0).toLocaleString('en-IN') + ' ' + t('sync_live');
+}
+
+function loadMeta() {
+  return serverRequest('meta').then(function (j) {
+    if (!j || !j.success) throw new Error('meta');
+    S.facets = j.facets; S.totalRecords = j.totalRecords;
+    if (j.blueprintPrice) APP.price = j.blueprintPrice;
+    $$('.price-text').forEach(function (e) { e.textContent = inr(APP.price); });
+    if ($('#st-opps')) $('#st-opps').textContent = j.totalRecords.toLocaleString('en-IN');
+    if ($('#st-locs')) $('#st-locs').textContent = j.facets.locations.length.toLocaleString('en-IN');
+    if ($('#st-cats')) $('#st-cats').textContent = j.facets.categories.length.toLocaleString('en-IN');
+    if ($('#stats')) $('#stats').hidden = false;
+    renderSyncBar(); renderFacets(); renderNicheOptions(); renderHeroChips();
+  }).catch(function () { renderSyncBar(true); });
+}
+
+function renderNicheOptions() {
+  var sel = $('#ff-niche'); if (!sel) return;
+  sel.innerHTML = '<option value="All">Any High-Margin Niche</option>' +
+    (S.facets.categories || []).map(function (c) { return '<option value="' + esc(c.v) + '">' + esc(c.v) + '</option>'; }).join('');
+}
+
+function renderHeroChips() {
+  var box = $('#hero-chips'); if (!box) return;
+  var picks = ['Garia', 'Purbasthali', '700084', 'Agri-Tourism', 'A2 Milk'];
+  box.innerHTML = '<span class="lbl">Try:</span>' +
+    picks.map(function (p) { return '<button class="chip" type="button" data-action="hero-chip" data-val="' + esc(p) + '">' + esc(p) + '</button>'; }).join('');
+}
+
+function facetBlock(title, kind, items, activeVal) {
+  var rows = '<button type="button" class="facet-item' + (activeVal === 'All' ? ' active' : '') + '" data-action="filter" data-kind="' + kind + '" data-val="All"><span>All</span></button>' +
+    (items || []).map(function (i) {
+      return '<button type="button" class="facet-item' + (activeVal === i.v ? ' active' : '') + '" data-action="filter" data-kind="' + kind + '" data-val="' + esc(i.v) + '"><span>' + esc(i.v) + '</span><small>' + i.n + '</small></button>';
+    }).join('');
+  return '<div class="facet"><h4>' + esc(title) + '</h4><div class="facet-list">' + rows + '</div></div>';
+}
+
+function renderFacets() {
+  var F = S.filters, fc = S.facets;
+  var html = facetBlock('Category', 'category', fc.categories, F.category) +
+             facetBlock('Location', 'location', fc.locations, F.location) +
+             facetBlock('Founder Fit', 'founderProfile', fc.founderProfiles, F.founderProfile);
+  var a = $('#facets-desktop'), b = $('#facets-sheet'); if (a) a.innerHTML = html; if (b) b.innerHTML = html;
+}
+
+function loadOpportunities(page) {
+  var box = $('#cards-container'); if (!box) return;
+  var seq = ++S.loadSeq;
+  S.page = page || 1; S.match = null;
+  box.innerHTML = new Array(6).join('<div class="skeleton"></div>');
+
+  return serverRequest('list', {
+    page: S.page, limit: 12, search: S.filters.search, category: S.filters.category,
+    location: S.filters.location, founderProfile: S.filters.founderProfile, sort: S.filters.sort
+  }).then(function (r) {
+    if (seq !== S.loadSeq) return;
+    if (!r || !r.success) throw new Error('list');
+    S.list = r.data; S.filtered = r.filteredCount; S.pages = r.totalPages; S.totalRecords = r.totalRecords;
+    renderCards(); renderPagination(); renderSyncBar();
+  }).catch(function () {
+    if (seq !== S.loadSeq) return;
+    box.innerHTML = '<div class="empty"><h3>We could not load opportunities right now.</h3><button class="btn btn-outline" type="button" data-action="retry">Try again</button></div>';
+  });
+}
+
+function isSaved(id) { return S.saved.some(function (s) { return s.id === id; }); }
+
+function renderCards() {
+  var box = $('#cards-container'); if (!box) return;
+  var data = S.match ? S.match.data : S.list;
+  if ($('#count-visible')) $('#count-visible').textContent = (S.match ? data.length : S.filtered).toLocaleString('en-IN');
+  if (!data.length) {
+    box.innerHTML = '<div class="empty"><h3>No opportunities match your search.</h3><button class="btn btn-outline" type="button" data-action="reset">Clear filters</button></div>';
+    return;
+  }
+  box.innerHTML = data.map(cardHtml).join('');
+}
+
+function renderPagination() {
+  var box = $('#pagination-controls'), info = $('#page-info');
+  if (!box || !info) return;
+  if (S.match || S.pages <= 1) { box.innerHTML = ''; info.textContent = ''; return; }
+  info.textContent = S.page + ' / ' + S.pages;
+  var b = ['<button type="button" ' + (S.page === 1 ? 'disabled' : '') + ' data-action="page" data-arg="' + (S.page - 1) + '">‹</button>'];
+  for (var i = 1; i <= S.pages; i++) {
+    b.push('<button type="button" class="' + (i === S.page ? 'active' : '') + '" data-action="page" data-arg="' + i + '">' + i + '</button>');
+  }
+  b.push('<button type="button" ' + (S.page === S.pages ? 'disabled' : '') + ' data-action="page" data-arg="' + (S.page + 1) + '">›</button>');
+  box.innerHTML = b.join('');
+}
+
+function openDetail(id) {
+  var box = $('#detail-content'); if (!box) return;
+  box.innerHTML = '<div class="skeleton" style="height:360px"></div>';
+  var cached = (S.match ? S.match.data : S.list).filter(function (o) { return o.id === id; })[0];
+  var p = cached ? Promise.resolve(cached) : serverRequest('detail', { id: id }).then(function (r) { return r.data; });
+  p.then(function (o) { S.detail = o; renderDetail(o); document.title = o.title + ' — GeoBiz'; });
+}
+
+function toggleSave(id) {
+  var o = (S.match ? S.match.data : S.list).concat(S.detail ? [S.detail] : []).filter(function (x) { return x.id === id; })[0];
+  if (isSaved(id)) { S.saved = S.saved.filter(function (s) { return s.id !== id; }); toast('Removed from workspace'); }
+  else if (o) { S.saved.push({ id: o.id, title: o.title, location: o.location }); toast('Saved to workspace'); }
+  store.set('geobiz_saved_v2', S.saved);
+  if (S.view === 'explore') renderCards();
+  if (S.view === 'detail' && S.detail) renderDetail(S.detail);
+}
+
+function renderDashboard() {
+  if ($('#dash-saved')) {
+    $('#dash-saved').innerHTML = S.saved.length ? S.saved.map(function (s) {
+      return '<div class="dash-item"><div><strong>' + esc(s.title) + '</strong><small>' + esc(s.location) + '</small></div><button class="btn btn-ghost btn-sm" data-action="save" data-id="' + esc(s.id) + '">Remove</button></div>';
+    }).join('') : '<p class="muted">No saved opportunities yet.</p>';
+  }
+  if ($('#dash-orders')) {
+    $('#dash-orders').innerHTML = S.orders.length ? S.orders.map(function (o) {
+      return '<div class="dash-item"><div><strong>' + esc(o.title) + '</strong><small>' + esc(o.orderId) + ' · ' + esc(o.date) + '</small></div><span class="pill good">' + esc(o.plan) + '</span></div>';
+    }).join('') : '<p class="muted">No orders or inquiries logged yet.</p>';
+  }
+}
+
+function wizardNext() {
+  if (S.wz < 3) { setWizardStep(S.wz + 1); return; }
+  var profile = {
+    name: $('#ff-name').value.trim(), state: $('#ff-state').value.trim(), city: $('#ff-city').value.trim(),
+    pin: $('#ff-pin').value.trim(), education: $('#ff-edu').value, skill: $('#ff-skill').value.trim(),
+    niche: $('#ff-niche').value, capital: $('#ff-capital').value, goal: $('#ff-goal').value,
+    time: $('#ff-time').value, risk: $('#ff-risk').value, consent: $('#ff-consent').checked
+  };
+
+  openModal('m-analyzer');
+  serverRequest('match', profile).then(function (m) {
+    closeModals();
+    S.match = { profile: profile, data: m.data, fallback: m.fallback };
+    navigate('explore');
+    renderCards();
+  }).catch(function() {
+    closeModals();
+    toast('Matching failed. Please retry.', true);
+  });
+}
+
+function openCheckout(id, title) {
+  var f = $('#checkout-form'); f.dataset.oppId = id || 'GENERAL'; f.dataset.oppTitle = title || 'General Blueprint';
+  $('#chk-item').textContent = title || '';
+  $('#chk-form-wrap').hidden = false; $('#chk-success').hidden = true;
+  openModal('m-checkout');
+}
+
+function submitCheckout(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn = $('#chk-submit'); btn.disabled = true;
+  var payload = {
+    opportunityId: form.dataset.oppId, opportunityTitle: form.dataset.oppTitle,
+    customerName: $('#chk-name').value.trim(), customerEmail: $('#chk-email').value.trim(), customerPhone: $('#chk-phone').value.trim()
+  };
+  serverRequest('order_blueprint', payload).then(function (r) {
+    S.orders.push({ orderId: r.orderId, title: payload.opportunityTitle, date: new Date().toLocaleDateString('en-IN'), plan: 'Blueprint ₹2,499' });
+    store.set('geobiz_orders_v2', S.orders);
+    $('#chk-order-id').textContent = r.orderId;
+    $('#chk-form-wrap').hidden = true; $('#chk-success').hidden = false;
+  }).catch(function () { toast('Failed to log order.', true); })
+    .then(function () { btn.disabled = false; });
+}
+
+function submitResearch(e) {
+  e.preventDefault();
+  var btn = $('#cr-submit'); btn.disabled = true;
+  serverRequest('request_research', {
+    name: $('#cr-name').value.trim(), phone: $('#cr-phone').value.trim(), email: $('#cr-email').value.trim(),
+    city: $('#cr-location').value.trim(), capital: $('#cr-capital').value.trim(), package: $('#cr-package').value, notes: $('#cr-notes').value.trim()
+  }).then(function (r) {
+    toast('Research mandate submitted! An analyst will contact you soon.');
+    e.target.reset();
+  }).catch(function () { toast('Submission failed.', true); })
+    .then(function () { btn.disabled = false; });
+}
+
+/* Delegated Actions */
+var ACTIONS = {
+  nav: function (el) { navigate(el.dataset.arg); },
+  finder: function () { focusFinder(); },
+  open: function (el) { navigate('detail', el.dataset.id); },
+  save: function (el) { toggleSave(el.dataset.id); },
+  share: function () {
+    if (navigator.share) navigator.share({ title: document.title, url: location.href });
+    else { navigator.clipboard.writeText(location.href); toast('Link copied to clipboard!'); }
+  },
+  theme: function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    store.set('geobiz_theme', next);
+    $('#theme-btn').textContent = next === 'dark' ? '☀️' : '🌙';
+  },
+  filter: function (el) {
+    S.filters[el.dataset.kind] = el.dataset.val; renderFacets(); loadOpportunities(1);
+    if (S.view !== 'explore') navigate('explore');
+  },
+  reset: function () {
+    S.filters = { search: '', category: 'All', location: 'All', founderProfile: 'All', sort: 'newest' };
+    if ($('#global-search')) $('#global-search').value = '';
+    renderFacets(); loadOpportunities(1);
+  },
+  page: function (el) { loadOpportunities(Number(el.dataset.arg)); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+  retry: function () { loadOpportunities(S.page); loadMeta(); },
+  'hero-chip': function (el) {
+    S.filters = { search: el.dataset.val, category: 'All', location: 'All', founderProfile: 'All', sort: 'newest' };
+    navigate('explore'); renderFacets(); loadOpportunities(1);
+  },
+  'open-filters': function () { openModal('m-filters'); },
+  close: function () { closeModals(); },
+  checkout: function (el) { openCheckout(el.dataset.id, el.dataset.title); },
+  'quick-unlock': function (el) { openStarterCheckout(el.dataset.id, el.dataset.title); },
+  'verify-starter': function () { closeModals(); toast('Payment verified! Your kit is being prepared for WhatsApp delivery.'); },
+  'wz-next': function () { wizardNext(); },
+  'wz-back': function () { if (S.wz > 1) setWizardStep(S.wz - 1); },
+  'clear-local': function () { ['geobiz_saved_v2', 'geobiz_orders_v2'].forEach(store.del); S.saved = []; S.orders = []; renderDashboard(); toast('Local data cleared'); },
+  legal: function (el) {
+    var d = LEGAL[el.dataset.arg]; if (!d) return;
+    $('#legal-tag').textContent = d.tag; $('#legal-title').textContent = d.title; $('#legal-body').innerHTML = d.html;
+    openModal('m-legal');
+  }
+};
+
+document.addEventListener('click', function (e) {
+  var closer = e.target.hasAttribute && e.target.hasAttribute('data-close') ? e.target : null;
+  if (closer && e.target.id !== 'm-analyzer') { closeModals(); return; }
+  var el = e.target.closest('[data-action]');
+  if (!el) return;
+  var fn = ACTIONS[el.dataset.action];
+  if (!fn) return;
+  if (el.tagName === 'A') e.preventDefault();
+  fn(el, e);
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModals(); });
+
+document.addEventListener('DOMContentLoaded', function () {
+  setWizardStep(1);
+  $('#theme-btn').textContent = document.documentElement.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+  
+  if ($('#finder-form')) $('#finder-form').addEventListener('submit', function (e) { e.preventDefault(); wizardNext(); });
+  if ($('#checkout-form')) $('#checkout-form').addEventListener('submit', submitCheckout);
+  if ($('#research-form')) $('#research-form').addEventListener('submit', submitResearch);
+  if ($('#starter-form')) $('#starter-form').addEventListener('submit', submitStarterPayment);
+
+  if ($('#sort-select')) $('#sort-select').addEventListener('change', function (e) { S.filters.sort = e.target.value; loadOpportunities(1); });
+  if ($('#hero-search')) $('#hero-search').addEventListener('submit', function (e) {
+    e.preventDefault();
+    S.filters = { search: $('#hero-q').value.trim(), category: 'All', location: 'All', founderProfile: 'All', sort: 'newest' };
+    navigate('explore'); renderFacets(); loadOpportunities(1);
+  });
+
+  var timer;
+  if ($('#global-search')) $('#global-search').addEventListener('input', function (e) {
+    clearTimeout(timer);
+    timer = setTimeout(function () { S.filters.search = e.target.value.trim(); loadOpportunities(1); }, 300);
+  });
+
+  window.addEventListener('popstate', route);
+  window.addEventListener('hashchange', route);
+
+  loadMeta().then(function () { route(); });
+  route();
+});
+</script>
+</body>
+</html>
